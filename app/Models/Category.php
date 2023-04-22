@@ -45,12 +45,25 @@ class Category extends Model implements TranslatableContract
         'slug',
     ];
 
-    public function scopeSorted($query, $direction = 'asc')
+    /**
+     * Scope a query to only include sorted categories.
+     *
+     * @param $query
+     * @param string $direction
+     * @return mixed
+     */
+    public function scopeSorted($query, string $direction = 'asc'): mixed
     {
         return $query->orderBy('sort_order', $direction);
     }
 
-    public function scopeEnabled($query)
+    /**
+     * Scope a query to only include enabled categories.
+     *
+     * @param $query
+     * @return mixed
+     */
+    public function scopeEnabled($query): mixed
     {
         return $query->where('status', 1);
     }

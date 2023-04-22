@@ -24,6 +24,11 @@ class CategoryTranslation extends Model
         'slug',
     ];
 
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array<string, string>
+     */
     protected $casts = [
         'meta_title' => 'string',
         'meta_description' => 'string',
@@ -51,7 +56,7 @@ class CategoryTranslation extends Model
      *
      * @return string
      */
-    public function getRouteKeyName()
+    public function getRouteKeyName(): string
     {
         return 'slug';
     }
