@@ -67,4 +67,12 @@ class Category extends Model implements TranslatableContract
     {
         return $query->where('status', 1);
     }
+
+    /**
+     * Get the posts for the category.
+     */
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
 }
