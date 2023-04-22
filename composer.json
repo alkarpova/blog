@@ -8,6 +8,7 @@
         "php": "^8.1",
         "astrotomic/laravel-translatable": "^11.12",
         "chinleung/laravel-multilingual-routes": "^4.0",
+        "cviebrock/eloquent-sluggable": "^10.0",
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^10.8",
         "laravel/sanctum": "^3.2",
