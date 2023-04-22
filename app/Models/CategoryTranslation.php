@@ -1,0 +1,58 @@
+<?php
+
+namespace App\Models;
+
+use Cviebrock\EloquentSluggable\Sluggable;
+use Illuminate\Database\Eloquent\Model;
+
+class CategoryTranslation extends Model
+{
+    use Sluggable;
+
+    public $timestamps = false;
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'meta_title',
+        'meta_description',
+        'name',
+        'content',
+        'slug',
+    ];
+
+    protected $casts = [
+        'meta_title' => 'string',
+        'meta_description' => 'string',
+        'name' => 'string',
+        'content' => 'string',
+        'slug' => 'string',
+    ];
+
+    /**
+     * Return the sluggable configuration array for this model.
+     *
+     * @return array
+     */
+    public function sluggable(): array
+    {
+        return [
+            'slug' => [
+                'source' => 'name'
+            ]
+        ];
+    }
+
+    /**
+     * Get the route key for the model.
+     *
+     * @return string
+     */
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+}
