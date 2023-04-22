@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2027cc0966fa1f9880a4b6dc99cbf577",
+    "content-hash": "7eeaa64844715cb1758c4337e718501b",
     "packages": [
         {
             "name": "astrotomic/laravel-translatable",
@@ -151,6 +151,129 @@
                 }
             ],
             "time": "2023-01-15T23:15:59+00:00"
+        },
+        {
+            "name": "chinleung/laravel-locales",
+            "version": "v2.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/chinleung/laravel-locales.git",
+                "reference": "3e3a8958a7ce8169db4fba7f19d3c60fac33d85b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/chinleung/laravel-locales/zipball/3e3a8958a7ce8169db4fba7f19d3c60fac33d85b",
+                "reference": "3e3a8958a7ce8169db4fba7f19d3c60fac33d85b",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "^9.0|^10.0",
+                "php": "^8.0|^8.1"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^7.0",
+                "phpunit/phpunit": "^9.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "ChinLeung\\LaravelLocales\\LaravelLocalesServiceProvider"
+                    ],
+                    "aliases": {
+                        "LaravelLocales": "ChinLeung\\LaravelLocales\\LaravelLocalesFacade"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "ChinLeung\\LaravelLocales\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Chin Leung",
+                    "email": "chinleung94@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Add configurations and helpers for a multi locale application.",
+            "homepage": "https://github.com/chinleung/laravel-locales",
+            "keywords": [
+                "chinleung",
+                "laravel-locales"
+            ],
+            "support": {
+                "issues": "https://github.com/chinleung/laravel-locales/issues",
+                "source": "https://github.com/chinleung/laravel-locales/tree/v2.0.1"
+            },
+            "time": "2023-02-20T16:25:16+00:00"
+        },
+        {
+            "name": "chinleung/laravel-multilingual-routes",
+            "version": "v4.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/chinleung/laravel-multilingual-routes.git",
+                "reference": "fd30408e9690191e8b043b4f391b166ca55ba827"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/chinleung/laravel-multilingual-routes/zipball/fd30408e9690191e8b043b4f391b166ca55ba827",
+                "reference": "fd30408e9690191e8b043b4f391b166ca55ba827",
+                "shasum": ""
+            },
+            "require": {
+                "chinleung/laravel-locales": "^2.0",
+                "illuminate/support": "^10.0",
+                "php": "^8.1"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^8.0",
+                "phpunit/phpunit": "^9.5.10"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "ChinLeung\\MultilingualRoutes\\MultilingualRoutesServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "ChinLeung\\MultilingualRoutes\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Chin Leung",
+                    "email": "hello@chinleung.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A package to register multilingual routes.",
+            "homepage": "https://github.com/chinleung/laravel-multilingual-routes",
+            "keywords": [
+                "chinleung",
+                "laravel",
+                "laravel-multilingual-routes",
+                "localization",
+                "routing"
+            ],
+            "support": {
+                "issues": "https://github.com/chinleung/laravel-multilingual-routes/issues",
+                "source": "https://github.com/chinleung/laravel-multilingual-routes/tree/v4.0.0"
+            },
+            "time": "2023-02-20T16:30:34+00:00"
         },
         {
             "name": "dflydev/dot-access-data",
