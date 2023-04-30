@@ -8,6 +8,10 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
+/**
+ * @method static sorted(string $field, string $direction = 'asc' | 'desc')
+ * @method static enabled()
+ */
 class Category extends Model implements TranslatableContract
 {
     use HasFactory, SoftDeletes, Translatable;
@@ -49,12 +53,13 @@ class Category extends Model implements TranslatableContract
      * Scope a query to only include sorted categories.
      *
      * @param $query
+     * @param string $field
      * @param string $direction
      * @return mixed
      */
-    public function scopeSorted($query, string $direction = 'asc'): mixed
+    public function scopeSorted($query, string $field = 'created_at', string $direction = 'asc'): mixed
     {
-        return $query->orderBy('sort_order', $direction);
+        return $query->orderBy($field, $direction);
     }
 
     /**

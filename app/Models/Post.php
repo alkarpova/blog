@@ -9,6 +9,10 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
+/**
+ * @method static sorted(string $field, string $direction = 'asc' | 'desc')
+ * @method static enabled()
+ */
 class Post extends Model
 {
     use HasFactory, SoftDeletes, Translatable;
@@ -54,12 +58,13 @@ class Post extends Model
      * Scope a query to only include sorted posts.
      *
      * @param $query
+     * @param string $field
      * @param string $direction
      * @return mixed
      */
-    public function scopeSorted($query, string $direction = 'asc'): mixed
+    public function scopeSorted($query, string $field = 'created_at', string $direction = 'asc'): mixed
     {
-        return $query->orderBy('created_at', $direction);
+        return $query->orderBy($field, $direction);
     }
 
     /**
