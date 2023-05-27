@@ -25,7 +25,12 @@ class PostController extends Controller
 
     public function comment(Request $request)
     {
-        $request->validate([
+        if (auth()->check()) {
+            $request->merge(['user_id' => auth()->user()->id]);
+            $request->merge(['name' => auth()->user()->name]);
+        }
+
+        $validated = $request->validate([
             'post_id' => 'required|exists:posts,id',
             'name' => 'required|string|max:255',
             'message' => 'required|string|max:255',

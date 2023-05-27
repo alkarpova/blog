@@ -10,7 +10,7 @@ class CategoryController extends Controller
     public function show($slug)
     {
         $category = Category::enabled()
-            ->withTranslation()
+            ->with('translations')
             ->whereTranslation('slug', $slug)
             ->firstOrFail();
 

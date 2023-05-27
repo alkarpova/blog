@@ -23,41 +23,36 @@
                 </div>
             </div>
             <div>
-                <h2 class="mb-5 font-sans font-semibold text-2xl lg:text-4xl">Comments</h2>
+                <h2 class="mb-5 font-sans font-semibold text-2xl lg:text-4xl">{{ __('Comments') }}</h2>
                 <div class="flex flex-col gap-4">
                     @foreach($post->comments as $comment)
                         @include('components.comment', ['comment' => $comment])
                     @endforeach
                     <form action="{{ route('comment') }}" method="post" class="flex flex-col gap-4 border p-5">
                         @csrf
-                        <h3 class="mb-5 font-sans font-semibold text-2xl">Add comments</h3>
+                        <h3 class="mb-5 font-sans font-semibold text-2xl">{{ __('Add comments') }}</h3>
+                        @auth()
+                        @else
+                            <div>
+                                <label for="name" class="block mb-2 text-sm font-semibold text-gray-900">{{ __('Name') }}</label>
+                                <input type="text" id="name" class="bg-gray-50 border border-neutral-900 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" name="name" placeholder="{{ __('Name') }}" required>
+                            </div>
+                        @endauth
+
                         <div>
-                            <label for="name" class="block mb-2 text-sm font-semibold text-gray-900">Name</label>
-                            <input type="text" id="name" class="bg-gray-50 border border-neutral-900 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" name="name" placeholder="Name" required>
-                        </div>
-                        <div>
-                            <label for="mesage" class="block mb-2 text-sm font-semibold text-gray-900">Message</label>
-                            <textarea id="mesage" class="bg-gray-50 border border-neutral-900 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" name="message" rows="10" placeholder="Message" required></textarea>
+                            <label for="mesage" class="block mb-2 text-sm font-semibold text-gray-900">{{ __('Message') }}</label>
+                            <textarea id="mesage" class="bg-gray-50 border border-neutral-900 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" name="message" rows="10" placeholder="{{ __('Message') }}" required></textarea>
                         </div>
                         <div class="flex justify-between">
                             <input type="hidden" name="post_id" value="{{ $post->id }}">
-                            <button class="inline-block px-10 py-3 bg-neutral-900 font-semibold text-white hover:bg-theme transition" type="submit">Send</button>
+                            <button class="inline-block px-10 py-3 bg-neutral-900 font-semibold text-white hover:bg-theme transition" type="submit">{{ __('Send') }}</button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
         <div class="col-span-12 lg:col-span-3 flex flex-col gap-4 relative">
-            <div class="p-5 bg-white text-center">
-                <div class="mb-5 font-sans font-semibold text-2xl lg:text-4xl">Categories</div>
-                <ul class="flex flex-col gap-3 uppercase text-theme">
-                    @foreach($listCategories as $category)
-                        <li>
-                            <a class="font-semibold" href="{{ localized_route('category.show', ['slug' => $category->slug]) }}">{{ $category->name }}</a>
-                        </li>
-                    @endforeach
-                </ul>
-            </div>
+            @include('components.listCategories')
         </div>
     </div>
 @endsection

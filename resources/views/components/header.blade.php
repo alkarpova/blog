@@ -25,7 +25,7 @@
                     @endforeach
                 @endif
             @endif
-            <a class="inline-flex items-center justify-center px-4 py-2 font-semibold text-gray-900 cursor-pointer" href="profile.html">
+            <a class="inline-flex items-center justify-center px-4 py-2 font-semibold text-gray-900 cursor-pointer" href="{{ localized_route('profile.show') }}">
                 <span>Profile</span>
             </a>
         </div>

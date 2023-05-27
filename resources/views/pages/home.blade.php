@@ -8,16 +8,7 @@
             @endforeach
         </div>
         <div class="col-span-12 lg:col-span-3 flex flex-col gap-4 relative">
-            <div class="p-5 bg-white text-center">
-                <div class="mb-5 font-sans font-semibold text-2xl lg:text-4xl">Categories</div>
-                <ul class="flex flex-col gap-3 uppercase text-theme">
-                    @foreach($listCategories as $category)
-                        <li>
-                            <a class="font-semibold" href="{{ localized_route('category.show', ['slug' => $category->slug]) }}">{{ $category->name }}</a>
-                        </li>
-                    @endforeach
-                </ul>
-            </div>
+            @include('components.listCategories')
         </div>
     </div>
 @endsection
