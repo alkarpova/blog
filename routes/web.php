@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +16,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::multilingual('/', [HomeController::class, 'index'])->name('home');
+Route::multilingual('category', [CategoryController::class, 'show'])->name('category.show');
+Route::multilingual('post', [PostController::class, 'show'])->name('post.show');
+
+Route::post('comment', [PostController::class, 'comment'])->name('comment');
