@@ -14,6 +14,8 @@ class CategoryController extends Controller
             ->whereTranslation('slug', $slug)
             ->firstOrFail();
 
+        $this->setMetaSeo($category);
+
         $posts = Post::enabled()
             ->sorted()
             ->withTranslation()

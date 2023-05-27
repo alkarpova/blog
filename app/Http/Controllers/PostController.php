@@ -20,6 +20,8 @@ class PostController extends Controller
             ])
             ->firstOrFail();
 
+        $this->setMetaSeo($post);
+
         return view('pages.post', compact('post'));
     }
 

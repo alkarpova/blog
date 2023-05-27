@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use Artesaos\SEOTools\Facades\SEOMeta;
 use Illuminate\Http\Request;
 
 class ProfileController extends Controller
@@ -19,6 +20,10 @@ class ProfileController extends Controller
 
     public function show()
     {
+        SEOMeta::setTitleDefault('Profile');
+        SEOMeta::setDescription('Profile');
+        SEOMeta::addMeta('robots', 'noindex,nofollow');
+
         $posts = Post::enabled()
             ->sorted()
             ->withTranslation()
