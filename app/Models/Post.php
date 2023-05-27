@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Str;
 
 /**
  * @method static sorted(string $field, string $direction = 'asc' | 'desc')
@@ -59,7 +60,7 @@ class Post extends Model
      *
      * @param $query
      * @param string $field
-     * @param string $direction
+     * @param string $direction = 'asc' | 'desc'
      * @return mixed
      */
     public function scopeSorted($query, string $field = 'created_at', string $direction = 'asc'): mixed
@@ -76,6 +77,11 @@ class Post extends Model
     public function scopeEnabled($query): mixed
     {
         return $query->where('status', 1);
+    }
+
+    public  function getDescriptionAttribute()
+    {
+        return Str::limit(strip_tags($this->content), 500);
     }
 
     /**
