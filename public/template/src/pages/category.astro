@@ -1,0 +1,52 @@
+---
+import Layout from '../layouts/PageLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import Post from '../components/Post.astro';
+import PostThumb from '../components/PostThumb.astro';
+---
+
+<Layout title="Home Page">
+    <Breadcrumbs />
+    <div class="container p-5 mx-auto grid grid-cols-12 gap-4">
+        <div class="col-span-12 lg:col-span-9 flex flex-col gap-4">
+            <div class="flex items-center justify-center gap-4 text-center uppercase font-sans font-semibold text-4xl xl:text-6xl text-theme">
+                <span class="w-[40px] h-[1px] bg-theme"></span>
+                <h1>LIFESTYLE</h1>
+                <span class="w-[40px] h-[1px] bg-theme"></span>
+            </div>
+            <Post />
+            <Post />
+            <Post />
+            <Post />
+            <Post />
+        </div>
+        <div class="col-span-12 lg:col-span-3 flex flex-col gap-4 relative">
+            <div class="p-5 bg-white text-center">
+                <div class="mb-5 font-sans font-semibold text-2xl lg:text-4xl">Categories</div>
+                <ul class="flex flex-col gap-3 uppercase text-theme">
+                    <li>
+                        <a class="font-semibold" href="#">Beauty</a>
+                    </li>
+                    <li>
+                        <a class="font-semibold" href="#">Fashion</a>
+                    </li>
+                    <li>
+                        <a class="font-semibold" href="#">Food</a>
+                    </li>
+                    <li>
+                        <a class="font-semibold" href="#">Lifestyle</a>
+                    </li>
+                    <li>
+                        <a class="font-semibold" href="#">Travel</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="p-5 text-center">
+                <div class="mb-5 font-sans font-semibold text-2xl lg:text-4xl">Popular posts</div>
+                <PostThumb />
+                <PostThumb />
+                <PostThumb />
+            </div>
+        </div>
+    </div>
+</Layout>
