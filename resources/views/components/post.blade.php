@@ -19,6 +19,6 @@
         {!! $post->description !!}
     </div>
     <div class="flex justify-between gap-4">
-        <a class="inline-block px-10 py-3 bg-neutral-900 font-semibold text-white hover:bg-theme transition" href="{{ localized_route('post.show', ['slug' => $post->slug]) }}">Read more</a>
+        <a class="inline-block px-10 py-3 bg-neutral-900 font-semibold text-white hover:bg-theme transition" href="{{ localized_route('post.show', ['slug' => $post->slug]) }}">{{ __('theme.read_more') }}</a>
     </div>
 </div>

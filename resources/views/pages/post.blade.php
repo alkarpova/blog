@@ -23,29 +23,29 @@
                 </div>
             </div>
             <div>
-                <h2 class="mb-5 font-sans font-semibold text-2xl lg:text-4xl">{{ __('Comments') }}</h2>
+                <h2 class="mb-5 font-sans font-semibold text-2xl lg:text-4xl">{{ __('theme.comments') }}</h2>
                 <div class="flex flex-col gap-4">
                     @foreach($post->comments as $comment)
                         @include('components.comment', ['comment' => $comment])
                     @endforeach
                     <form action="{{ route('comment') }}" method="post" class="flex flex-col gap-4 border p-5">
                         @csrf
-                        <h3 class="mb-5 font-sans font-semibold text-2xl">{{ __('Add comments') }}</h3>
+                        <h3 class="mb-5 font-sans font-semibold text-2xl">{{ __('theme.add_comment') }}</h3>
                         @auth()
                         @else
                             <div>
-                                <label for="name" class="block mb-2 text-sm font-semibold text-gray-900">{{ __('Name') }}</label>
-                                <input type="text" id="name" class="bg-gray-50 border border-neutral-900 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" name="name" placeholder="{{ __('Name') }}" required>
+                                <label for="name" class="block mb-2 text-sm font-semibold text-gray-900">{{ __('theme.name') }}</label>
+                                <input type="text" id="name" class="bg-gray-50 border border-neutral-900 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" name="name" placeholder="{{ __('theme.name') }}" required>
                             </div>
                         @endauth
 
                         <div>
-                            <label for="mesage" class="block mb-2 text-sm font-semibold text-gray-900">{{ __('Message') }}</label>
-                            <textarea id="mesage" class="bg-gray-50 border border-neutral-900 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" name="message" rows="10" placeholder="{{ __('Message') }}" required></textarea>
+                            <label for="message" class="block mb-2 text-sm font-semibold text-gray-900">{{ __('theme.message') }}</label>
+                            <textarea id="message" class="bg-gray-50 border border-neutral-900 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" name="message" rows="10" placeholder="{{ __('theme.message') }}" required></textarea>
                         </div>
                         <div class="flex justify-between">
                             <input type="hidden" name="post_id" value="{{ $post->id }}">
-                            <button class="inline-block px-10 py-3 bg-neutral-900 font-semibold text-white hover:bg-theme transition" type="submit">{{ __('Send') }}</button>
+                            <button class="inline-block px-10 py-3 bg-neutral-900 font-semibold text-white hover:bg-theme transition" type="submit">{{ __('theme.send') }}</button>
                         </div>
                     </form>
                 </div>
