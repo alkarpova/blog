@@ -17,7 +17,7 @@ class CategoryController extends Controller
         $this->setMetaSeo($category);
 
         $posts = Post::enabled()
-            ->sorted()
+            ->sorted('created_at', 'desc')
             ->withTranslation()
             ->where('category_id', $category->id)
             ->with([

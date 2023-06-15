@@ -25,6 +25,7 @@ class ViewServiceProvider extends ServiceProvider
         $locales = config('translatable.locales');
 
         $categories = Category::enabled()
+            ->sorted('sort_order')
             ->with('translations')
             ->where('status', true)
             ->get();

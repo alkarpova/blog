@@ -20,18 +20,22 @@ use Illuminate\Support\Facades\Route;
 */
 
 // Blog
+// Home page
 Route::multilingual('/', [HomeController::class, 'index'])->name('home');
+
+// Category page
 Route::multilingual('category', [CategoryController::class, 'show'])->name('category.show');
+
+// Post page
 Route::multilingual('post', [PostController::class, 'show'])->name('post.show');
 
-// Comment
+// Add Comment
 Route::post('comment', [PostController::class, 'comment'])->name('comment');
 
-// Profile
+// Profile page
 Route::multilingual('profile', [ProfileController::class, 'show'])->name('profile.show');
 
 // Auth
-
 Route::post('login', [LoginController::class, 'login'])->name('login');
 Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 Route::post('register', [RegisterController::class, 'register'])->name('register');

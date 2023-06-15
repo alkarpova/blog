@@ -12,7 +12,7 @@
     </div>
     @if ($post->image)
     <a href="{{ localized_route('post.show', ['slug' => $post->slug]) }}">
-        <img class="w-full" src="https://placehold.co/800x600" loading="lazy" alt="{{ $post->name }}">
+    <img class="w-full" src="{{ Storage::url($post->image) }}" loading="lazy" alt="{{ $post->name }}">
     </a>
     @endif
     <div class="flex flex-col gap-3 font-sans text-xl">
