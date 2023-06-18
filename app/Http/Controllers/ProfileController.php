@@ -18,7 +18,7 @@ class ProfileController extends Controller
         SEOMeta::addMeta('robots', 'noindex,nofollow');
 
         $posts = Post::enabled()
-            ->sorted()
+            ->sorted('created_at', 'desc')
             ->withTranslation()
             ->where('user_id', auth()->user()->id ?? null)
             ->simplePaginate(5);

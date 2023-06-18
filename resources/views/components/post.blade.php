@@ -23,7 +23,7 @@
         @if ($showEditorPanel)
             <form action="{{ route('post.destroy', ['post' => $post->id]) }}" method="post">
                 @csrf
-                <button type="submit" class="inline-block px-10 py-3 bg-red-500 font-semibold text-white hover:bg-theme transition">{{ __('theme.delete_post') }}</button>
+                <button type="submit" class="inline-block px-10 py-3 bg-neutral-900 font-semibold text-white hover:bg-theme transition">{{ __('theme.delete_post') }}</button>
             </form>
         @endif
     </div>
