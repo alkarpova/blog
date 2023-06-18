@@ -11,7 +11,7 @@
                 <span class="w-[40px] h-[1px] bg-theme"></span>
             </div>
             @foreach($posts as $post)
-                @include('components.post', ['post' => $post, 'showCategory' => false])
+                @include('components.post', ['post' => $post, 'showCategory' => false, 'showEditorPanel' => false])
             @endforeach
             {!! $posts->links() !!}
         </div>
