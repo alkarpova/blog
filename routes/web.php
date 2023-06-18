@@ -24,7 +24,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     // Profile page
     Route::post('post-store', [PostController::class, 'store'])->name('post.store');
-    Route::post('post-destroy', [PostController::class, 'destroy'])->name('post.destroy');
+    Route::post('post-destroy/{post}', [PostController::class, 'destroy'])->name('post.destroy');
 
     Route::multilingual('profile', [ProfileController::class, 'show'])->name('profile.show');
     Route::multilingual('post.create', [PostController::class, 'create'])->name('post.create');

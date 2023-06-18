@@ -89,7 +89,7 @@ class PostController extends Controller
     public function destroy(Post $post)
     {
         // Check if user is owner of post
-        if ($post->user_id !== auth()->user()->id) {
+        if ((int)$post->user_id !== auth()->user()->id) {
             abort(403);
         }
 
