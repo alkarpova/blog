@@ -20,5 +20,11 @@
     </div>
     <div class="flex justify-between gap-4">
         <a class="inline-block px-10 py-3 bg-neutral-900 font-semibold text-white hover:bg-theme transition" href="{{ localized_route('post.show', ['slug' => $post->slug]) }}">{{ __('theme.read_more') }}</a>
+        @if ($showEditorPanel)
+            <form action="{{ route('post.destroy') }}" method="post">
+                @csrf
+                <button type="submit" class="inline-block px-10 py-3 bg-red-500 font-semibold text-white hover:bg-theme transition">{{ __('theme.delete_post') }}</button>
+            </form>
+        @endif
     </div>
 </div>

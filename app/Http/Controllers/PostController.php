@@ -86,6 +86,18 @@ class PostController extends Controller
         return redirect()->route(app()->getLocale() . '.profile.show');
     }
 
+    public function destroy(Post $post)
+    {
+        // Check if user is owner of post
+        if ($post->user_id !== auth()->user()->id) {
+            abort(403);
+        }
+
+        $post->delete();
+
+        return redirect()->route(app()->getLocale() . '.profile.show');
+    }
+
     /**
      * Add comment.
      *
