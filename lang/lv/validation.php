@@ -158,6 +158,13 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'category_id' => 'Kategorija',
+        'en.name' => 'Nosaukums',
+        'en.content' => 'Saturs',
+        'lv.name' => 'Nosaukums (LV)',
+        'lv.content' => 'Saturs (LV)',
+        'image' => 'Attēls',
+    ],
 
 ];

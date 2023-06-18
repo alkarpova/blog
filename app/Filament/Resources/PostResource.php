@@ -116,10 +116,13 @@ class PostResource extends Resource
                     ->toggleable()
                     ->searchable(),
                 Tables\Columns\IconColumn::make('status')
+                    ->sortable()
                     ->boolean(),
                 Tables\Columns\TextColumn::make('created_at')
+                    ->sortable()
                     ->dateTime(),
                 Tables\Columns\TextColumn::make('updated_at')
+                    ->sortable()
                     ->dateTime(),
             ])
             ->filters([
@@ -133,6 +136,11 @@ class PostResource extends Resource
                     }),
                 Tables\Filters\SelectFilter::make('user')
                     ->relationship('user', 'name'),
+                Tables\Filters\SelectFilter::make('user')
+                    ->options([
+                        '1' => 'Active',
+                        '0' => 'Inactive',
+                    ]),
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),

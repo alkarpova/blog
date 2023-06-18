@@ -4,20 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Artesaos\SEOTools\Facades\SEOMeta;
-use Illuminate\Http\Request;
 
 class ProfileController extends Controller
 {
     /**
-     * Create a new controller instance.
+     * Show profile page.
      *
-     * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
     public function show()
     {
         SEOMeta::setTitleDefault('Profile');
@@ -30,6 +23,6 @@ class ProfileController extends Controller
             ->where('user_id', auth()->user()->id ?? null)
             ->simplePaginate(5);
 
-        return view('pages.profile', compact('posts'));
+        return view('profile.index', compact('posts'));
     }
 }

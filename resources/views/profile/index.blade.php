@@ -14,7 +14,8 @@
             {!! $posts->links() !!}
         </div>
         <div class="col-span-12 lg:col-span-3 flex flex-col gap-4 relative">
-            <div class="p-5 bg-white text-center">
+            <div class="p-5 bg-white text-center flex flex-col items-center gap-4">
+                <a class="inline-block px-10 py-3 bg-neutral-900 font-semibold text-white hover:bg-theme transition" href="{{ localized_route('post.create') }}">{{ __('theme.add_post') }}</a>
                 <form action="{{ route('logout') }}" method="post">
                     @csrf
                     <button type="submit" class="inline-block px-10 py-3 bg-neutral-900 font-semibold text-white hover:bg-theme transition">{{ __('theme.logout') }}</button>

@@ -171,6 +171,13 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'category_id' => 'Category',
+        'en.name' => 'Title',
+        'en.content' => 'Content',
+        'lv.name' => 'Title (LV)',
+        'lv.content' => 'Content (LV)',
+        'image' => 'Image',
+    ],
 
 ];

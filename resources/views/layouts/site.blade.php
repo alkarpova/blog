@@ -11,11 +11,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('assets/css/style.min.css') }}" />
+    @yield('head_scripts')
 </head>
 <body class="antialiased bg-white font-serif text-base">
 @include('components.header')
 @yield('content')
 @include('components.footer')
+@yield('footer_scripts')
 <script type="module" src="{{ asset('assets/js/main.min.js') }}"></script>
 </body>
 </html>
