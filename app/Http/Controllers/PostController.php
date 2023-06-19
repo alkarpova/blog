@@ -70,7 +70,7 @@ class PostController extends Controller
             '%name%' => 'required|string|max:255',
             '%content%' => 'required|string',
             'category_id' => 'required|exists:categories,id',
-            'file' => 'nullable|mimes:jpeg,png,jpg',
+            'file' => 'nullable|mimes:jpeg,png,jpg|size:2048',
         ]);
 
         $request->validate($rules);
