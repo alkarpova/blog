@@ -8,7 +8,7 @@
                         <a href="#">Facebook</a>
                     </li>
                     <li>
-                        <a href="#">Instagran</a>
+                        <a href="#">Instagram</a>
                     </li>
                 </ul>
             </div>

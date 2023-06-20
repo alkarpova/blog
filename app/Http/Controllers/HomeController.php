@@ -13,7 +13,7 @@ class HomeController extends Controller
         SEOMeta::setDescription('My personal blog');
 
         $posts = Post::enabled()
-            ->sorted()
+            ->sorted('created_at', 'desc')
             ->withTranslation()
             ->with([
                 'user',
