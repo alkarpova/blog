@@ -14,7 +14,7 @@ return [
     'email' => 'E-pasts',
     'password' => 'Parole',
     'confirm_password' => 'Apstiprināt paroli',
-    'message' => 'Ziņojums',
+    'message' => 'Komentārs',
     'select_item' => 'Izvēlēties',
     'category' => 'Kategorija',
     'title' => 'Nosaukums',

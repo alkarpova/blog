@@ -31,7 +31,7 @@ class PostResource extends Resource
             $tabsContent[] = Forms\Components\Tabs\Tab::make(strtoupper($locale))
                 ->schema([
                     Forms\Components\TextInput::make($locale . '.name')
-                        ->maxLength(255)
+                        ->maxLength(155)
                         ->required()
                         ->hint('Max length 155 words')
                         ->label('Name'),
