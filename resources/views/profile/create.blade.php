@@ -10,9 +10,12 @@
             <div>
                 <label for="category" class="block mb-2 text-sm font-semibold text-gray-900">{{ __('theme.category') }} <span class="font-bold text-red-500">*</span></label>
                 <select id="category" class="bg-gray-50 border border-neutral-900 @error('category_id') border-red-500 @enderror text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" name="category_id">
-                    <option value="" selected>Select item</option>
                     @foreach($categories as $category)
-                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                        @if($category->id == old('category_id'))
+                            <option value="{{ $category->id }}" selected>{{ $category->name }}</option>
+                        @else
+                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                        @endif
                     @endforeach
                 </select>
                 @error('category_id')
@@ -29,7 +32,7 @@
                 <div class="flex flex-col gap-4" :class="{ 'active': activeTab === 0 }" x-show.transition.in.opacity.duration.600="activeTab === 0">
                     <div>
                         <label for="en_name" class="block mb-2 text-sm font-semibold text-gray-900">{{ __('theme.title') }} <span class="font-bold text-red-500">*</span></label>
-                        <input id="en_name" class="bg-gray-50 border border-neutral-900 @error('en.name') border-red-500 @enderror text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" name="en[name]" type="text"  placeholder="{{ __('theme.name') }}" required>
+                        <input id="en_name" class="bg-gray-50 border border-neutral-900 @error('en.name') border-red-500 @enderror text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" name="en[name]" value="{{ old('en.name') }}" type="text"  placeholder="{{ __('theme.name') }}" required>
                         @error('en.name')
                             <p class="text-red-500 text-xs italic mt-4">
                                 {{ $message }}
@@ -38,7 +41,7 @@
                     </div>
                     <div>
                         <label for="en_content" class="block mb-2 text-sm font-semibold text-gray-900">{{ __('theme.content') }} <span class="font-bold text-red-500">*</span></label>
-                        <textarea id="en_content" name="en[content]" placeholder="{{ __('theme.content') }}"></textarea>
+                        <textarea id="en_content" name="en[content]" placeholder="{{ __('theme.content') }}">{{ old('en.content') }}</textarea>
                         @error('en.content')
                             <p class="text-red-500 text-xs italic mt-4">
                                 {{ $message }}
@@ -49,7 +52,7 @@
                 <div class="flex flex-col gap-4" :class="{ 'active': activeTab === 1 }" x-show.transition.in.opacity.duration.600="activeTab === 1">
                     <div>
                         <label for="lv_name" class="block mb-2 text-sm font-semibold text-gray-900">{{ __('theme.title') }} <span class="font-bold text-red-500">*</span></label>
-                        <input id="lv_name" class="bg-gray-50 border border-neutral-900 @error('lv.name') border-red-500 @enderror text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" name="lv[name]" type="text"  placeholder="{{ __('theme.name') }}" required>
+                        <input id="lv_name" class="bg-gray-50 border border-neutral-900 @error('lv.name') border-red-500 @enderror text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" name="lv[name]" value="{{ old('lv.name') }}" type="text"  placeholder="{{ __('theme.name') }}" required>
                         @error('lv.name')
                             <p class="text-red-500 text-xs italic mt-4">
                                 {{ $message }}
@@ -58,7 +61,7 @@
                     </div>
                     <div>
                         <label for="lv_content" class="block mb-2 text-sm font-semibold text-gray-900">{{ __('theme.content') }} <span class="font-bold text-red-500">*</span></label>
-                        <textarea id="lv_content" name="lv[content]" placeholder="{{ __('theme.content') }}"></textarea>
+                        <textarea id="lv_content" name="lv[content]" placeholder="{{ __('theme.content') }}">{{ old('lv.content') }}</textarea>
                         @error('lv.content')
                             <p class="text-red-500 text-xs italic mt-4">
                                 {{ $message }}
